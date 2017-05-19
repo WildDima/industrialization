@@ -1,5 +1,7 @@
-require "industrialization/version"
-
+require 'industrialization/version'
+# Industrialization
 module Industrialization
-  # Your code goes here...
+  require 'industrialization/create_factory'
+  require 'industrialization/create_file'
+  require 'industrialization/railtie' if defined?(Rails)
 end
