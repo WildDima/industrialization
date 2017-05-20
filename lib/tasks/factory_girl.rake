@@ -10,8 +10,11 @@ namespace :industrialization do
       command = args[:command] || ''
       path = args[:path] || 'spec/factories'
 
-      puts command
-      puts path
+      # rubocop:disable Eval
+      obj = eval(command)
+      # rubocop:enable Eval
+
+      Industrialization::Factory.call(obj: obj, path: path)
     end
   end
 end
