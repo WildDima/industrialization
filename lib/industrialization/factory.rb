@@ -15,9 +15,13 @@ module Industrialization
     end
 
     def call
-      @file = File.new(path: path).create
+      @file = File.new(path: file_path).create
 
-      return 'ERROR' unless file.created?
+      return file.error_messages unless file.created?
+    end
+
+    def file_path
+      "#{path}/#{ActiveSupport::Inflector.underscore(obj.class.name)}.rb"
     end
   end
 end
