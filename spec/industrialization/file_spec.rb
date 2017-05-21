@@ -59,12 +59,16 @@ RSpec.describe Industrialization::File do
       allow(opened_file).to receive(:write).with(data)
     end
 
-    it 'does create file' do
-      expect { file.create }.to change { file.created? }.from(false).to(true)
+    describe '#create' do
+      it 'does create file' do
+        expect { file.create }.to change { file.created? }.from(false).to(true)
+      end
     end
 
-    it 'does write in file, if file was created' do
-      expect(file.create.write(data)).to eq(file)
+    describe '#write' do
+      it 'does write in file, if file was created' do
+        expect(file.create.write(data)).to eq(file)
+      end
     end
   end
 end

@@ -7,17 +7,20 @@ module Industrialization
       end
     end
 
-    attr_accessor :obj, :path, :file
+    attr_accessor :obj, :path, :file, :file_class
 
-    def initialize(obj:, path:)
+    def initialize(obj:, path:, file_class: File)
       @obj = obj
       @path = path
+      @file_class = file_class
     end
 
     def call
-      @file = File.new(path: file_path).create
+      @file = file_class.new(path: file_path).create
 
       return file.error_messages unless file.created?
+
+      # file.write(data)
     end
 
     def file_path
