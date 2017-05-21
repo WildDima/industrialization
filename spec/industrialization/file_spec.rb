@@ -1,13 +1,15 @@
 require 'spec_helper'
 
 RSpec.describe Industrialization::File do
-  let(:path) { 'test_path/for/file.rb' }
-  let(:file) { described_class.new(path: path) }
+  let(:path) { 'test_path/for' }
+  let(:name) { 'file.rb' }
+  let(:file) { described_class.new(path: path, name: name) }
   let(:data) { 'test data' }
+  let(:full_path) { "#{path}/#{name}" }
 
   context 'file already exists' do
     before do
-      allow(::File).to receive(:exist?).with(path).and_return(true)
+      allow(::File).to receive(:exist?).with(full_path).and_return(true)
     end
 
     describe '#create' do
@@ -51,11 +53,11 @@ RSpec.describe Industrialization::File do
   context 'file doesn\'t exists' do
     let(:opened_file) { double('file') }
     let(:mode) { 'w+' }
-    let(:file) { described_class.new(path: path) }
+    let(:file) { described_class.new(path: path, name: name) }
 
     before do
-      allow(::File).to receive(:exist?).with(path).and_return(false)
-      allow(::File).to receive(:open).with(path, mode).and_return(opened_file)
+      allow(::File).to receive(:exist?).with(full_path).and_return(false)
+      allow(::File).to receive(:open).with(full_path, mode).and_return(opened_file)
       allow(opened_file).to receive(:write).with(data)
     end
 

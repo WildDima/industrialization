@@ -14,7 +14,8 @@ namespace :industrialization do
       obj = eval(command)
       # rubocop:enable Eval
 
-      Industrialization::Factory.call(obj: obj, path: path)
+      status = Industrialization::Factory.call(obj: obj, path: path)
+      $stdout << status
     end
   end
 end
