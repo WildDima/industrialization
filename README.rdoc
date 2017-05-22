@@ -1,5 +1,8 @@
 == Industrialization
 
+{<img src="https://travis-ci.org/WildDima/industrialization.svg?branch=master"
+alt="Build Status" />}[https://github.com/WildDima/industrialization]
+
 Ruby library which allow to create factory from ActiveRecord object
 
 === Installation
