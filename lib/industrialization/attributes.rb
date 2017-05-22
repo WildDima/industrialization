@@ -3,7 +3,7 @@ module Industrialization
   class Attributes
     extend Forwardable
 
-    delegate :each => :modified_attributes
+    delegate each: :modified_attributes
 
     attr_reader :attributes
 
