@@ -1,11 +1,7 @@
 FactoryGirl.define do
   factory :<%= object_name %> do
     <% object_attributes.each do |attr, val| %>
-      <% if val.is_a? String %>
-        <%= attr %> '<%= val %>'
-      <% else %>
-        <%= attr %> <%= val %>
-      <% end %>
+      <%= attr %> <%= val %>
     <% end %>
   end
 end
