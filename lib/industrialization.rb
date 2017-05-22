@@ -5,6 +5,7 @@ module Industrialization
   require 'industrialization/factory'
   require 'industrialization/file'
   require 'industrialization/generator'
+  require 'industrialization/attributes'
   require 'industrialization/railtie' if defined?(Rails)
   # TODO: Remove active support
   require 'active_support/inflector'

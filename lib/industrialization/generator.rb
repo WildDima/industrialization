@@ -20,24 +20,8 @@ module Industrialization
     end
 
     def object_attributes
-      modify_hash obj.serializable_hash
-        .except('created_at', 'updated_at')
-    end
-
-    # TODO: I don't like, need to refactor
-    def modify_hash(hash)
-      hash.each_with_object({}) do |(key, val), acc|
-        acc[key] = case val
-                   when Hash
-                     modify_hash(val)
-                   when String
-                     "'#{val}'"
-                   when nil
-                    "nil"
-                   else
-                     val
-                   end
-      end
+      Attributes.new(attributes: obj.serializable_hash
+        .except('created_at', 'updated_at'))
     end
   end
 end
