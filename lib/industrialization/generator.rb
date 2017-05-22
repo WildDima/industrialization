@@ -32,6 +32,8 @@ module Industrialization
                      modify_hash(val)
                    when String
                      "'#{val}'"
+                   when nil
+                    "nil"
                    else
                      val
                    end

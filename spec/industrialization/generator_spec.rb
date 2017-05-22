@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Industrialization::Generator do
   let(:object_attributes) { { a1: 1, a2: '12', a3: nil, a4: { a5: 'sdsa das' } } }
-  let(:modified_attributes) { { a1: 1, a2: "'12'", a3: nil, a4: { a5: "'sdsa das'" } } }
+  let(:modified_attributes) { { a1: 1, a2: "'12'", a3: "nil", a4: { a5: "'sdsa das'" } } }
   let(:object) { double('TestObject', object_attributes) }
   subject { described_class.new(obj: object) }
 
