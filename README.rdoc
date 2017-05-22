@@ -1,0 +1,46 @@
+== Industrialization
+
+Ruby library which allow to create factory from ActiveRecord object
+
+=== Installation
+
+Add this line to your application's Gemfile:
+
+
+  gem 'industrialization'
+
+
+And then execute:
+
+  $ bundle
+
+Or install it yourself as:
+
+  $ gem install industrialization
+
+=== Usage
+
+  # Create post
+  Post.create(title: 'test_post')
+
+  # In params we pass object(also we can pass path as second param)
+  $ rake industrialization:factory_girl:create[Post.first]
+
+And it will generate factory if file doesn't exist, and path does exist:
+
+  FactoryGirl.define do
+    factory :post do
+      id 2
+      title 'test'
+      description nil
+    end
+  end
+
+=== Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/wilddima/industrialization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+
+=== License
+
+The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
