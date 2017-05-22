@@ -18,7 +18,7 @@ RSpec.describe Industrialization::Generator do
 
   describe '#modify_hash' do
     it 'does return correct hash' do
-      expect(subject.modify_hash object_attributes).to eq(modified_attributes)
+      expect(subject.modify_hash(object_attributes)).to eq(modified_attributes)
     end
   end
 end
