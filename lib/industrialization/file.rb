@@ -30,7 +30,7 @@ module Industrialization
     end
 
     def error_messages
-      @errors.join(' ')
+      errors.join(' ')
     end
 
     def full_path

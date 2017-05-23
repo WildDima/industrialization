@@ -7,35 +7,57 @@ module Industrialization
       end
     end
 
-    attr_accessor :obj, :path, :file, :file_class, :generator_class
+    attr_accessor :obj,
+                  :path,
+                  :file,
+                  :factories_path,
+                  :file_class,
+                  :generator_class,
+                  :path_class
 
     def initialize(obj:,
-                   path:,
+                   factories_path:,
                    file_class: File,
-                   generator_class: Generator)
+                   generator_class: Generator,
+                   path_class: Directory)
       @obj = obj
-      @path = path
+      @factories_path = factories_path
       @file_class = file_class
       @generator_class = generator_class
+      @path_class = path_class
     end
 
     def call
-      @file = file_class.new(path: path, name: file_name).create
+      @file = create_path && create_file
       return file.error_messages unless file.created?
       @file.write factory_data
-      "factory #{file_path} was created"
+      "factory #{factory_path} was created"
     end
 
-    def file_path
-      "#{path}/#{ActiveSupport::Inflector.underscore(obj.class.name)}.rb"
+    def factory_path
+      "#{factories_path}/#{underscore(obj.class.name)}.rb"
     end
 
-    def file_name
-      "#{ActiveSupport::Inflector.underscore(obj.class.name)}.rb"
+    def factory_name
+      "#{underscore(obj.class.name)}.rb"
     end
 
     def factory_data
       Generator.new(obj: obj).render
+    end
+
+    private
+
+    def create_path
+      path_class.new(path: factories_path).create
+    end
+
+    def create_file
+      file_class.new(path: path, name: factory_name).create
+    end
+
+    def underscore(class_name)
+      class_name.split('::').map(&:downcase).join('_')
     end
   end
 end

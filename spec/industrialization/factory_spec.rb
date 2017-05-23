@@ -6,8 +6,8 @@ RSpec.describe Industrialization::Factory do
   let(:file) { double('File') }
   let(:path) { 'spec/factories' }
   let(:error_messages) { 'File already exists' }
-  let(:success_message) { 'factory spec/factories/r_spec/mocks/double.rb was created' }
-  subject { described_class.new(obj: object, path: path) }
+  let(:success_message) { 'factory spec/factories/rspec_mocks_double.rb was created' }
+  subject { described_class.new(obj: object, factories_path: path) }
 
   before do
     allow(object).to receive(:serializable_hash) { object_attributes }
