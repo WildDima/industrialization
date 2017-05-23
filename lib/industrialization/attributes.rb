@@ -12,18 +12,26 @@ module Industrialization
     end
 
     # TODO: I don't like, need to refactor
-    def modified_attributes(attrs = attributes)
-      attrs.each_with_object({}) do |(key, val), acc|
-        acc[key] = case val
-                   when Hash
-                     modified_attributes(val)
-                   when String
-                     "'#{val}'"
-                   when nil
-                     'nil'
-                   else
-                     val
-                   end
+    def modified_attributes(attrs = default_attributes)
+      attrs.each_with_object({}) { |(key, val), acc| acc[key] = modify val }
+    end
+
+    private
+
+    def default_attributes
+      attributes.except('created_at', 'updated_at', 'id')
+    end
+
+    def modify(val)
+      case val
+      when Hash
+        modified_attributes(val)
+      when String
+        "'#{val}'"
+      when nil
+        'nil'
+      else
+        val
       end
     end
   end

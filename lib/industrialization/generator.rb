@@ -11,7 +11,7 @@ module Industrialization
     end
 
     def render
-      renderer = ERB.new(template)
+      renderer = ERB.new(template, nil, '-')
       renderer.result(binding)
     end
 
@@ -20,8 +20,7 @@ module Industrialization
     end
 
     def object_attributes
-      Attributes.new(attributes: obj.serializable_hash
-        .except('created_at', 'updated_at'))
+      Attributes.new(attributes: obj.serializable_hash)
     end
   end
 end
