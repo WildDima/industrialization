@@ -10,4 +10,10 @@ module Industrialization
   require 'industrialization/railtie' if defined?(Rails)
   # TODO: Remove active support
   require 'active_support/inflector'
+
+  def underscore(class_name)
+    class_name.split('::').map(&:downcase).join('_')
+  end
+
+  module_function :underscore
 end

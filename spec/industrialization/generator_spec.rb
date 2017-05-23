@@ -11,7 +11,42 @@ RSpec.describe Industrialization::Generator do
 
   # TODO: write normal specs
   it 'does return correct factory data' do
-    # expect(subject.render).to eq("FactoryGirl.define do\n  factory :r_spec/mocks/double do\n    \n      a1 1\n    \n      a2 12\n    \n      a3 \n    \n      a4 {}\n    \n  end\nend")
     expect(subject.render).to be_a String
+  end
+
+  context 'object without namespace' do
+    subject { described_class.new(obj: {}) }
+
+    describe '#object_name' do
+      it 'does return class name' do
+        subject { described_class.new(obj: object) }
+
+        expect(subject.object_name).to eq('hash')
+      end
+    end
+
+    describe '#class_name' do
+      it 'does return empty string' do
+        expect(subject.class_name).to eq(' ')
+      end
+    end
+  end
+
+  context 'object with namespace' do
+    describe '#object_name' do
+      it 'does return class name' do
+        subject { described_class.new(obj: object) }
+
+        expect(subject.object_name).to eq('rspec_mocks_double')
+      end
+    end
+
+    describe '#class_name' do
+      it 'does return class name' do
+        subject { described_class.new(obj: object) }
+
+        expect(subject.class_name).to eq(", class: 'RSpec::Mocks::Double'")
+      end
+    end
   end
 end

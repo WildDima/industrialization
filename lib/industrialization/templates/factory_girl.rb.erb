@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :<%= object_name %> do
+  factory :<%= object_name %><%= class_name %> do
   <% object_attributes.each do |attr, val| -%>
   <%= attr %> <%= val %>
   <% end -%>

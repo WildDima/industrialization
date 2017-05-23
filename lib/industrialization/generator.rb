@@ -16,7 +16,11 @@ module Industrialization
     end
 
     def object_name
-      ActiveSupport::Inflector.underscore(obj.class.name)
+      Industrialization.underscore(obj.class.name)
+    end
+
+    def class_name
+      obj.class.name.include?('::') ? ", class: '#{obj.class.name}'" : ' '
     end
 
     def object_attributes

@@ -2,8 +2,8 @@ module Industrialization
   # CreateFactory
   class Factory
     class << self
-      def call(obj:, path:)
-        new(obj: obj, path: path).call
+      def call(obj:, factories_path:)
+        new(obj: obj, factories_path: factories_path).call
       end
     end
 
@@ -53,7 +53,7 @@ module Industrialization
     end
 
     def create_file
-      file_class.new(path: path, name: factory_name).create
+      file_class.new(path: factories_path, name: factory_name).create
     end
 
     def underscore(class_name)
