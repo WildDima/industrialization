@@ -7,6 +7,11 @@ module Industrialization
   require 'industrialization/generator'
   require 'industrialization/attributes'
   require 'industrialization/directory'
+
+  require 'industrialization/partial/base'
+  require 'industrialization/partial/hash'
+  require 'industrialization/partial/default'
+
   require 'industrialization/railtie' if defined?(Rails)
   # TODO: Remove active support
   require 'active_support/inflector'

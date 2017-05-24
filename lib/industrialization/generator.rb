@@ -6,18 +6,18 @@ module Industrialization
                 :serialization_method,
                 :attributes_class,
                 :template_path,
-                :partial_path
+                :partials_path
 
     def initialize(obj:,
                    serialization_method: :serializable_hash,
                    template_path: 'templates/factory_girl.rb.erb',
-                   partial_path: 'templates/partials/',
+                   partials_path: 'templates/partials/',
                    attributes_class: Attributes)
       @obj = obj
       @serialization_method = serialization_method
       @attributes_class = attributes_class
       @template_path = template_path
-      @partial_path = partial_path
+      @partials_path = partials_path
       @template = read_template path: template_path
     end
 
@@ -29,9 +29,9 @@ module Industrialization
     def render_partial(attr:, value:)
       case value
       when Hash
-        hash_partial(attr: attr, value: value)
+        Partial::Hash.new(attr: attr, value: value).render
       else
-        base_partial(attr: attr, value: value)
+        Partial::Default.new(attr: attr, value: value).render
       end
     end
 
@@ -49,29 +49,10 @@ module Industrialization
 
     private
 
-    def base_partial(attr:, value:)
-      renderer = ERB.new(read_partial_for(:base), nil, '-')
-      namespace = OpenStruct.new(attr: attr, value: value)
-      renderer.result(namespace.instance_eval { binding })
-    end
-
-    def hash_partial(attr:, value:)
-      renderer = ERB.new(read_partial_for(:hash), nil, '-')
-      namespace = OpenStruct.new(attr: attr, value: value)
-      renderer.result(namespace.instance_eval { binding })
-    end
-
     def read_template(path:)
-      # TODO: refactor
-      ::File.open(
-        ::File.join(
-          ::File.dirname(::File.expand_path(__FILE__)), path
-        ), 'r'
-      ).read
-    end
-
-    def read_partial_for(partial)
-      read_template path: "#{partial_path}#{partial}.rb.erb"
+      ::File.read(
+        Pathname.new(__FILE__).parent.expand_path.join(path)
+      )
     end
   end
 end
