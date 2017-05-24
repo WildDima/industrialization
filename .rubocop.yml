@@ -15,3 +15,6 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 15
+
+Metrics/ParameterLists:
+  Max: 7

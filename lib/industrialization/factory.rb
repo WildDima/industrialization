@@ -2,14 +2,17 @@ module Industrialization
   # CreateFactory
   class Factory
     class << self
-      def call(obj:, factories_path:)
-        new(obj: obj, factories_path: factories_path).call
+      def call(obj:, factories_path:, serialization_method: :serializable_hash)
+        new(obj: obj,
+            factories_path: factories_path,
+            serialization_method: serialization_method).call
       end
     end
 
     attr_accessor :obj,
                   :path,
                   :file,
+                  :serialization_method,
                   :factories_path,
                   :file_class,
                   :generator_class,
@@ -17,11 +20,13 @@ module Industrialization
 
     def initialize(obj:,
                    factories_path:,
+                   serialization_method: :serializable_hash,
                    file_class: File,
                    generator_class: Generator,
                    path_class: Directory)
       @obj = obj
       @factories_path = factories_path
+      @serialization_method = serialization_method
       @file_class = file_class
       @generator_class = generator_class
       @path_class = path_class
@@ -43,7 +48,7 @@ module Industrialization
     end
 
     def factory_data
-      Generator.new(obj: obj).render
+      generator_class.new(obj: obj, serialization_method: serialization_method).render
     end
 
     private

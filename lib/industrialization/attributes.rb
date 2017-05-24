@@ -26,12 +26,14 @@ module Industrialization
       case val
       when Hash
         modified_attributes(val)
-      when String
-        "'#{val}'"
+      when Array
+        val
+      when Numeric
+        val
       when nil
         'nil'
       else
-        val
+        "'#{val}'"
       end
     end
   end
