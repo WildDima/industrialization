@@ -23,7 +23,7 @@ module Industrialization
 
       def read_partial
         ::File.read(
-          Pathname.new(__FILE__).join('../..').expand_path.join("#{partials_path}#{partial}.rb.erb")
+          Pathname.new(__dir__).parent.expand_path.join("#{partials_path}#{partial}.rb.erb")
         )
       end
     end

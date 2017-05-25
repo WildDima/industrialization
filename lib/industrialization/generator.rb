@@ -53,7 +53,7 @@ module Industrialization
 
     def read_template(path:)
       ::File.read(
-        Pathname.new(__FILE__).parent.expand_path.join(path)
+        Pathname.new(__dir__).expand_path.join(path)
       )
     end
   end
