@@ -8,7 +8,7 @@ RSpec.describe Industrialization::Partial::Hash do
   let(:rendered) { 'test_attr {test_value}' }
   subject { described_class.new(attr: attr, value: value) }
 
-  it 'does return partial' do
+  it 'does return rendered partial' do
     expect(subject.render).to eq(rendered)
   end
 end
