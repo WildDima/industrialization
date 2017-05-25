@@ -14,7 +14,5 @@ module Industrialization
   require 'industrialization/partial/default'
 
   require 'industrialization/railtie' if defined?(Rails)
-  # TODO: Remove active support
-  require 'active_support/inflector'
   require 'ostruct'
 end

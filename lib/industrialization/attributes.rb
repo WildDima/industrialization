@@ -1,6 +1,7 @@
 module Industrialization
   # Attributes
   class Attributes
+    include Utils
     extend Forwardable
 
     delegate each: :modified_attributes
@@ -19,7 +20,7 @@ module Industrialization
     private
 
     def default_attributes
-      attributes.except('created_at', 'updated_at', 'id')
+      hash_except_keys attributes, keys: %w[created_at updated_at id]
     end
 
     def modify(val)
