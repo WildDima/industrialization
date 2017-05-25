@@ -1,6 +1,8 @@
 module Industrialization
   # Generator
   class Generator
+    include Industrialization::Utils
+
     attr_reader :obj,
                 :template,
                 :serialization_method,
@@ -36,7 +38,7 @@ module Industrialization
     end
 
     def object_name
-      Industrialization.underscore(obj.class.name)
+      underscore(obj.class.name)
     end
 
     def class_name

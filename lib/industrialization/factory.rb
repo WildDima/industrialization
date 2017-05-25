@@ -1,6 +1,8 @@
 module Industrialization
   # CreateFactory
   class Factory
+    include Industrialization::Utils
+
     class << self
       def call(obj:, factories_path:, serialization_method: :serializable_hash)
         new(obj: obj,
@@ -59,10 +61,6 @@ module Industrialization
 
     def create_file
       file_class.new(path: factories_path, name: factory_name).create
-    end
-
-    def underscore(class_name)
-      class_name.split('::').map(&:downcase).join('_')
     end
   end
 end

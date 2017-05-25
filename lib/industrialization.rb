@@ -2,6 +2,7 @@ require 'industrialization/version'
 # Industrialization
 module Industrialization
   require 'erb'
+  require 'industrialization/utils'
   require 'industrialization/factory'
   require 'industrialization/file'
   require 'industrialization/generator'
@@ -16,10 +17,4 @@ module Industrialization
   # TODO: Remove active support
   require 'active_support/inflector'
   require 'ostruct'
-
-  def underscore(class_name)
-    class_name.split('::').map(&:downcase).join('_')
-  end
-
-  module_function :underscore
 end
