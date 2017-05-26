@@ -2,6 +2,10 @@ AllCops:
   Exclude:
     - industrialization.gemspec
 
+Style/ModuleFunction:
+  Exclude:
+    - "lib/industrialization/utils.rb"
+
 Metrics/LineLength:
   Max: 100
 

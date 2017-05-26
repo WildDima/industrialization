@@ -29,12 +29,13 @@ module Industrialization
     end
 
     def render_partial(attr:, value:)
-      case value
-      when Hash
-        Partial::Hash.new(attr: attr, value: value).render
-      else
-        Partial::Default.new(attr: attr, value: value).render
-      end
+      klass = begin
+                constantize("Industrialization::Partial::#{value.class}")
+              rescue NameError
+                Partial::Default
+              end
+
+      klass.new(attr: attr, value: value).render
     end
 
     def object_name
