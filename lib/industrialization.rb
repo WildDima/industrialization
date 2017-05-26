@@ -12,6 +12,8 @@ module Industrialization
   require 'industrialization/partial/base'
   require 'industrialization/partial/hash'
   require 'industrialization/partial/default'
+  require 'industrialization/partial/array'
+  require 'industrialization/partial/nil'
 
   require 'industrialization/railtie' if defined?(Rails)
   require 'ostruct'
