@@ -2,6 +2,7 @@ module Industrialization
   # Attributes
   class Attributes
     include Utils
+    include Enumerable
     extend Forwardable
 
     delegate each: :default_attributes
