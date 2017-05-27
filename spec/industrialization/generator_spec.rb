@@ -8,18 +8,17 @@ RSpec.describe Industrialization::Generator do
     "FactoryGirl.define do\n"\
     "  factory :rspec_mocks_double, class: 'RSpec::Mocks::Double' do\n"\
     "      a1 1\n"\
-    "      a2 '12'\n"\
+    "      a2 12\n"\
     "      a3 nil\n"\
-    "      a4 {{:a5=>\"'sdsa das'\"}}\n"\
+    "      a4 {{:a5=>\"sdsa das\"}}\n"\
     "  end\n"\
-    "end"
+    'end'
   end
 
   before do
     allow(object).to receive(:serializable_hash) { object_attributes }
   end
 
-  # TODO: write normal specs
   it 'does return correct factory data' do
     expect(subject.render).to eq(rendered_string)
   end

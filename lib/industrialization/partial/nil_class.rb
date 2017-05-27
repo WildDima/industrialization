@@ -1,9 +1,9 @@
 module Industrialization
   module Partial
     # Nil
-    class Nil < Base
+    class NilClass < Base
       def partial
-        :nil
+        :nil_class
       end
     end
   end

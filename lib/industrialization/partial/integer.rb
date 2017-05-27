@@ -1,9 +1,9 @@
 module Industrialization
   module Partial
-    # Default
-    class Array < Base
+    # Integer
+    class Integer < Base
       def partial
-        :array
+        :integer
       end
     end
   end

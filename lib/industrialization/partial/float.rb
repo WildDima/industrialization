@@ -1,9 +1,9 @@
 module Industrialization
   module Partial
-    # Default
-    class Array < Base
+    # Float
+    class Float < Base
       def partial
-        :array
+        :float
       end
     end
   end
