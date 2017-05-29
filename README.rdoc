@@ -39,11 +39,6 @@ And it will generate factory if file doesn't exist, and path does exist:
     end
   end
 
-=== TODO
-
-* Correct creation of nested structures like hashes, arrays
-* Correct creation of nested objects attributes
-
 === Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/wilddima/industrialization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
