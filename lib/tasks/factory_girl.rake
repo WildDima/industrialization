@@ -3,17 +3,20 @@ namespace :industrialization do
     task :create, %I[command path method] => %I[environment create_factory]
 
     task :create_factory, %I[command path method] do |_t, args|
-      command = args[:command] || ''
-      path = args[:path] || 'spec/factories'
-      method = args[:method] || :serializable_hash
+      command = args[:command]
+      path = args[:path]
+      method = args[:method]
 
       # rubocop:disable Eval
       obj = eval(command)
       # rubocop:enable Eval
 
-      status = Industrialization::Factory.call(obj: obj,
-                                               factories_path: path,
-                                               serialization_method: method)
+      status = Industrialization::Factory.new(
+        obj: obj,
+        factories_path: path,
+        serialization_method: method
+      ).call
+
       $stdout << status
     end
   end

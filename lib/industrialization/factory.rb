@@ -3,14 +3,6 @@ module Industrialization
   class Factory
     include Industrialization::Utils
 
-    class << self
-      def call(obj:, factories_path:, serialization_method: :serializable_hash)
-        new(obj: obj,
-            factories_path: factories_path,
-            serialization_method: serialization_method).call
-      end
-    end
-
     attr_accessor :obj,
                   :path,
                   :file,
@@ -21,14 +13,14 @@ module Industrialization
                   :path_class
 
     def initialize(obj:,
-                   factories_path:,
-                   serialization_method: :serializable_hash,
+                   factories_path: nil,
+                   serialization_method: nil,
                    file_class: File,
                    generator_class: Generator,
                    path_class: Directory)
       @obj = obj
-      @factories_path = factories_path
-      @serialization_method = serialization_method
+      @factories_path = factories_path || default_factories_path
+      @serialization_method = serialization_method || :serializable_hash
       @file_class = file_class
       @generator_class = generator_class
       @path_class = path_class
@@ -61,6 +53,10 @@ module Industrialization
 
     def create_file
       file_class.new(path: factories_path, name: factory_name).create
+    end
+
+    def default_factories_path
+      defined?(RSpec) ? 'spec/factories' : 'test/factories'
     end
   end
 end
