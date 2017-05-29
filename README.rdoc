@@ -43,7 +43,6 @@ And it will generate factory if file doesn't exist, and path does exist:
 
 * Correct creation of nested structures like hashes, arrays
 * Correct creation of nested objects attributes
-* Add capability to create factories for minitest
 
 === Contributing
 
