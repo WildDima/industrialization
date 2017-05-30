@@ -5,7 +5,7 @@ RSpec.describe Industrialization::Partial::Default do
 
   let(:attr) { 'test_attr' }
   let(:value) { 'test_value' }
-  let(:rendered) { 'test_attr test_value' }
+  let(:rendered) { "test_attr 'test_value'" }
   subject { described_class.new(attr: attr, value: value) }
 
   it 'does return partial' do
