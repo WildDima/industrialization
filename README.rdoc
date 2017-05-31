@@ -41,11 +41,11 @@ And it will generate factory if file doesn't exist, and path does exist:
 
 Rake task has 3 params:
 
-  [command] string of code, executing of which, will return object for factory girl
+[command] string of code, executing of which, will return object for factory girl
 
-  [path (optional)] path to factories. By deafault, if RSpec is defined, it will use 'spec/factories', if not - 'test/factories'
+[path (optional)] path to factories. By deafault, if RSpec is defined, it will use 'spec/factories', if not - 'test/factories'
 
-  [method (optional)] method for serialization. By default for ActiveRecord using +:serializable_hash+. If command from first param return not ActiveRecord object, you can use your own method for serialization, like +:to_h+ etc.
+[method (optional)] method for serialization. By default for ActiveRecord using +:serializable_hash+. If command from first param return not ActiveRecord object, you can use your own method for serialization, like +:to_h+ etc.
 
 === Contributing
 
