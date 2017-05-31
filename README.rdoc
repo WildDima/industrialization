@@ -39,6 +39,14 @@ And it will generate factory if file doesn't exist, and path does exist:
     end
   end
 
+To rake task has 3 params:
+
+* command - string of code, executing of which, will return object for factory girl
+
+* path (optional) - path to factories. By deafault, if RSpec is defined, it will use 'spec/factories', if not - 'test/factories'
+
+* method (optional) - method for serialization. By default for ActiveRecord using `:serializable_hash`. If command from first param return not ActiveRecord object, you can use your own method for serialization, like `:to_h` etc.
+
 === Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/wilddima/industrialization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
