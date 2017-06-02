@@ -16,6 +16,8 @@ module Industrialization
   require 'industrialization/partial/nil_class'
   require 'industrialization/partial/float'
   require 'industrialization/partial/integer'
+  require 'industrialization/partial/true_class'
+  require 'industrialization/partial/false_class'
 
   require 'industrialization/railtie' if defined?(Rails)
   require 'ostruct'
