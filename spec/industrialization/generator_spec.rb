@@ -6,7 +6,7 @@ RSpec.describe Industrialization::Generator do
   subject { described_class.new(obj: object) }
   let(:rendered_string) do
     "FactoryGirl.define do\n"\
-    "  factory :rspec_mocks_double, class: 'RSpec::Mocks::Double' do\n"\
+    "  factory :r_spec_mocks_double, class: 'RSpec::Mocks::Double' do\n"\
     "      a1 1\n"\
     "      a2 '12'\n"\
     "      a3 nil\n"\
@@ -46,7 +46,7 @@ RSpec.describe Industrialization::Generator do
       it 'does return class name' do
         subject { described_class.new(obj: object) }
 
-        expect(subject.object_name).to eq('rspec_mocks_double')
+        expect(subject.object_name).to eq('r_spec_mocks_double')
       end
     end
 

@@ -4,7 +4,7 @@ module Industrialization
     extend self
 
     def underscore(class_name)
-      class_name.split('::').map(&:downcase).join('_')
+      class_name.split(/(?=[A-Z])|::/).map(&:downcase).join('_')
     end
 
     def hash_except_keys(hash, keys:)

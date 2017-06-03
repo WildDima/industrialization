@@ -4,8 +4,8 @@ RSpec.describe Industrialization::Utils do
   subject { described_class }
 
   describe '.underscore' do
-    let(:class_name) { 'Asd::Qwqe::Djhjk' }
-    let(:class_name_underscored) { 'asd_qwqe_djhjk' }
+    let(:class_name) { 'Asd::Qwqe::DjhjkQwe' }
+    let(:class_name_underscored) { 'asd_qwqe_djhjk_qwe' }
 
     it 'does return correct string' do
       expect(subject.underscore(class_name)).to eq(class_name_underscored)
