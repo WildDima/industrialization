@@ -36,6 +36,7 @@ And it will generate factory if file doesn't exist, and path does exist:
       id 2
       title 'test'
       description nil
+      published true
     end
   end
 
