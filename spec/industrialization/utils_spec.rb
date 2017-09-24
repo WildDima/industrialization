@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::Utils do
+RSpec.describe Industry::Utils do
   subject { described_class }
 
   describe '.underscore' do
@@ -25,8 +25,8 @@ RSpec.describe Industrialization::Utils do
 
   describe '.constantize' do
     context 'class exists' do
-      let(:klass_name) { 'Industrialization::Partial::Default' }
-      let(:klass) { Industrialization::Partial::Default }
+      let(:klass_name) { 'Industry::Partial::Default' }
+      let(:klass) { Industry::Partial::Default }
 
       it 'does return' do
         expect(subject.constantize(klass_name)).to eq(klass)
@@ -34,7 +34,7 @@ RSpec.describe Industrialization::Utils do
     end
 
     context 'class doesn\'t exist' do
-      let(:klass_name) { 'Industrialization::Partial::Hjhjhjhj' }
+      let(:klass_name) { 'Industry::Partial::Hjhjhjhj' }
 
       it 'does return' do
         expect { subject.constantize(klass_name) }.to raise_error NameError

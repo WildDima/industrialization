@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::Attributes do
+RSpec.describe Industry::Attributes do
   # TODO: refactor it
   let(:except_attributes) do
     {

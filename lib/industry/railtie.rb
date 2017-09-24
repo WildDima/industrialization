@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   # Railtie
   class Railtie < Rails::Railtie
     rake_tasks do

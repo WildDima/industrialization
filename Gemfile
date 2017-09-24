@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in industrialization.gemspec
+# Specify your gem's dependencies in industry.gemspec
 gemspec

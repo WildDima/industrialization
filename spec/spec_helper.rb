@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'industrialization'
+require 'industry'
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 RSpec.configure do |config|

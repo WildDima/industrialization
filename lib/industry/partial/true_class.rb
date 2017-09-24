@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   module Partial
     # TrueClass
     class TrueClass < Base

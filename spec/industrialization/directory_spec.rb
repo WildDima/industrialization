@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::Directory do
+RSpec.describe Industry::Directory do
 end

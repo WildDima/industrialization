@@ -1,7 +1,7 @@
-== Industrialization
+== Industry
 
-{<img src="https://travis-ci.org/WildDima/industrialization.svg?branch=master"
-alt="Build Status" />}[https://github.com/WildDima/industrialization]
+{<img src="https://travis-ci.org/WildDima/Industry.svg?branch=master"
+alt="Build Status" />}[https://github.com/WildDima/Industry]
 
 Ruby library which allow to create factory from ActiveRecord object
 
@@ -10,7 +10,7 @@ Ruby library which allow to create factory from ActiveRecord object
 Add this line to your application's Gemfile:
 
 
-  gem 'industrialization'
+  gem 'industry'
 
 
 And then execute:
@@ -19,7 +19,7 @@ And then execute:
 
 Or install it yourself as:
 
-  $ gem install industrialization
+  $ gem install Industry
 
 === Usage
 
@@ -27,7 +27,7 @@ Or install it yourself as:
   Post.create(title: 'test_post')
 
   # In params we pass object(also we can pass path as second param)
-  $ rake industrialization:factory_girl:create[Post.first]
+  $ rake Industry:factory_girl:create[Post.first]
 
 And it will generate factory if file doesn't exist, and path does exist:
 
@@ -50,7 +50,7 @@ Rake task has 3 params:
 
 === Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/wilddima/industrialization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wilddima/Industry. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 === License

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::Factory do
+RSpec.describe Industry::Factory do
   let(:object_attributes) { { a1: 1, a2: '12', a3: nil, a4: {} } }
   let(:object) { double('TestObject', object_attributes) }
   let(:file) { double('File') }
@@ -15,14 +15,14 @@ RSpec.describe Industrialization::Factory do
 
   context 'file already present' do
     it 'does return error message' do
-      allow_any_instance_of(Industrialization::File).to receive(:create) do |value|
+      allow_any_instance_of(Industry::File).to receive(:create) do |value|
         value.errors << error_messages
         value
       end
 
-      expect_any_instance_of(Industrialization::File).to receive(:create)
+      expect_any_instance_of(Industry::File).to receive(:create)
 
-      expect_any_instance_of(Industrialization::File).to receive(:created?).and_call_original
+      expect_any_instance_of(Industry::File).to receive(:created?).and_call_original
 
       expect(subject.call).to eq(error_messages)
     end
@@ -32,7 +32,7 @@ RSpec.describe Industrialization::Factory do
     it 'return success message' do
       allow(::File).to receive(:exist?).and_return(true)
 
-      allow_any_instance_of(Industrialization::File).to receive(:create) do |value|
+      allow_any_instance_of(Industry::File).to receive(:create) do |value|
         value.created = true
         value.file = file
         value
@@ -40,9 +40,9 @@ RSpec.describe Industrialization::Factory do
 
       allow(file).to receive(:write)
 
-      expect_any_instance_of(Industrialization::File).to receive(:create)
+      expect_any_instance_of(Industry::File).to receive(:create)
 
-      expect_any_instance_of(Industrialization::File).to receive(:created?).and_call_original
+      expect_any_instance_of(Industry::File).to receive(:created?).and_call_original
 
       expect(subject.call).to eq(success_message)
     end

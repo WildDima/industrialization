@@ -1,7 +1,7 @@
-module Industrialization
+module Industry
   # Generator
   class Generator
-    include Industrialization::Utils
+    include Industry::Utils
 
     attr_reader :obj,
                 :template,
@@ -30,7 +30,7 @@ module Industrialization
 
     def render_partial(attr:, value:)
       klass = begin
-                constantize("Industrialization::Partial::#{value.class}")
+                constantize("Industry::Partial::#{value.class}")
               rescue NameError
                 Partial::Default
               end

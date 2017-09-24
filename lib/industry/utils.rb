@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   # Utils
   module Utils
     extend self

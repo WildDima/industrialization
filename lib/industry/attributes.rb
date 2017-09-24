@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   # Attributes
   class Attributes
     include Utils

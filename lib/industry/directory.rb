@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   # Directory
   class Directory
     attr_reader :path, :errors

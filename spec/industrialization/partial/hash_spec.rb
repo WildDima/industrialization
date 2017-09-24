@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::Partial::Hash do
+RSpec.describe Industry::Partial::Hash do
   it_behaves_like 'partial', described_class
 
   let(:attr) { 'test_attr' }

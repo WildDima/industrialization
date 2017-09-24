@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization do
+RSpec.describe Industry do
   it 'has a version number' do
-    expect(Industrialization::VERSION).not_to be nil
+    expect(Industry::VERSION).not_to be nil
   end
 end

@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   module Partial
     # Hash
     class Hash < Base

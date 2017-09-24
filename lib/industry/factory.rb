@@ -1,7 +1,7 @@
-module Industrialization
+module Industry
   # CreateFactory
   class Factory
-    include Industrialization::Utils
+    include Industry::Utils
 
     attr_accessor :obj,
                   :path,

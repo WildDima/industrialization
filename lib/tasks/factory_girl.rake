@@ -1,4 +1,4 @@
-namespace :industrialization do
+namespace :industry do
   namespace :factory_girl do
     task :create, %I[command path method] => %I[environment create_factory]
 
@@ -11,7 +11,7 @@ namespace :industrialization do
       obj = eval(command)
       # rubocop:enable Eval
 
-      status = Industrialization::Factory.new(
+      status = Industry::Factory.new(
         obj: obj,
         factories_path: path,
         serialization_method: method

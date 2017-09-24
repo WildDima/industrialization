@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   # CreateFile
   class File
     attr_accessor :path, :created, :errors, :name, :file

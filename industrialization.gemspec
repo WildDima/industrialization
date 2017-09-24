@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'industrialization/version'
+require 'industry/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "industrialization"
-  spec.version       = Industrialization::VERSION
+  spec.name          = "industry"
+  spec.version       = Industry::VERSION
   spec.authors       = ["Dmitrii Topornin"]
   spec.email         = ["dtopornin@gmail.com"]
 
   spec.summary       = %q{Gem for generating FactoryGirl object}
   spec.description   = %q{Gem for generating FactoryGirl object from existing instance in db}
-  spec.homepage      = "https://github.com/WildDima/industrialization"
+  spec.homepage      = "https://github.com/WildDima/industry"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

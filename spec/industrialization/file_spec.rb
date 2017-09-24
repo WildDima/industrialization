@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Industrialization::File do
+RSpec.describe Industry::File do
   let(:path) { 'test_path/for' }
   let(:name) { 'file.rb' }
   let(:file) { described_class.new(path: path, name: name) }

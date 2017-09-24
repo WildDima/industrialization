@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   module Partial
     # Default
     class Array < Base

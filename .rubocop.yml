@@ -1,10 +1,10 @@
 AllCops:
   Exclude:
-    - industrialization.gemspec
+    - industry.gemspec
 
 Style/ModuleFunction:
   Exclude:
-    - "lib/industrialization/utils.rb"
+    - "lib/industry/utils.rb"
 
 Metrics/LineLength:
   Max: 100

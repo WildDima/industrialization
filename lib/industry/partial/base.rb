@@ -1,4 +1,4 @@
-module Industrialization
+module Industry
   module Partial
     # Abstract class for partials
     class Base
